@@ -28,6 +28,9 @@ public class Game {
         else if (getPlayer(0) == PLAYER_O && getPlayer(3) == PLAYER_O && getPlayer(6) == PLAYER_O) {
             return PLAYER_O;
         }
+        if (getPlayer(1) == PLAYER_X && getPlayer(4) == PLAYER_X && getPlayer(7) == PLAYER_X) {
+            return PLAYER_X;
+        }
         return 0;
 
     }
