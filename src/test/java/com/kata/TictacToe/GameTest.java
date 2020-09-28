@@ -237,4 +237,18 @@ public class GameTest {
 
         Assert.assertEquals(0, ticTacToeGame.getWinner());
     }
+
+    @Test
+    public void userInputShouldBeBetween1To9() {
+        Assert.assertTrue(ticTacToeGame.userInputValidation(0));
+        Assert.assertTrue(ticTacToeGame.userInputValidation(1));
+        Assert.assertTrue(ticTacToeGame.userInputValidation(2));
+        Assert.assertTrue(ticTacToeGame.userInputValidation(3));
+        Assert.assertTrue(ticTacToeGame.userInputValidation(4));
+        Assert.assertTrue(ticTacToeGame.userInputValidation(5));
+        Assert.assertTrue(ticTacToeGame.userInputValidation(6));
+        Assert.assertTrue(ticTacToeGame.userInputValidation(7));
+        Assert.assertTrue(ticTacToeGame.userInputValidation(8));
+    }
+
 }
