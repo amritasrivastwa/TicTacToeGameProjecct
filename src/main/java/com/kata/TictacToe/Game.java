@@ -1,5 +1,7 @@
 package com.kata.TictacToe;
 
+import java.util.logging.Logger;
+
 public class Game {
 
     public static final char PLAYER_X = 'X';
@@ -13,6 +15,8 @@ public class Game {
     public static final int ZERO_POSITION = 0;
     public static final int THIRD_POSITION = 3;
     public static final int SIXTH_POSITION = 6;
+
+    static Logger log = Logger.getLogger(Game.class.getName());
 
     char previousPlayer;
     char[] board = new char[9];
@@ -28,7 +32,7 @@ public class Game {
     }
     public boolean userInputValidation(int positionNumber) {
         if (positionNumber < 0 || positionNumber > 8) {
-            System.out.println("Invalid input re-enter slot number....");
+            log.warning("Invalid input re-enter position number....");
             return false;
         } else
             return true;
@@ -38,7 +42,7 @@ public class Game {
             playAtPosition(positionNumber);
             return true;
         } else {
-            System.out.println("Slot already taken; re-enter slot number: ");
+            log.warning("Position already taken; re-enter Position number: ");
             return false;
         }
     }
@@ -50,6 +54,17 @@ public class Game {
             previousPlayer = currentPlayer;
         }
     }
+    //To check for draw match
+    public boolean checkMatchIsDraw() {
+        for (int i = 0; i < 9; i++) {
+            if (board[i] == i)
+                break;
+            else if (i == 8)
+                return true;
+        }
+        return false;
+    }
+
     private char getCurrentPlayer() {
         return previousPlayer == PLAYER_X ? PLAYER_O : PLAYER_X;
     }
@@ -116,9 +131,5 @@ public class Game {
         System.out.println("| 6 | 7 | 8 |");
         System.out.println("/---|---|---\\");
 
-    }
-
-    public boolean checkMatchIsDraw() {
-        return true;
     }
 }

@@ -17,6 +17,7 @@ public class GameRunner {
         ticTacToeGame.initializeBoard();
         ticTacToeGame.printBoard();
         char winner = 0;
+
         while (true) {
             log.info(turn+"  turn: enter position number (0 to 8) :");
             positionNumber = in.nextInt();
