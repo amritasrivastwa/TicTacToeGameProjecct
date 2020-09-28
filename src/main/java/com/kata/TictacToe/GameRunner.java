@@ -6,9 +6,9 @@ import java.util.logging.Logger;
 public class GameRunner {
     static Game ticTacToeGame;
     static Logger log = Logger.getLogger(GameRunner.class.getName());
-    public static char turn= 'X';
+    public static char turn = 'X';
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int positionNumber;
         log.info("Welcome to 2 Player Tic Tac Toe.");
@@ -19,9 +19,9 @@ public class GameRunner {
         char winner = 0;
 
         while (true) {
-            log.info(turn+"  turn: enter position number (0 to 8) :");
+            log.info(turn + "  turn: enter position number (0 to 8) :");
             positionNumber = in.nextInt();
-            if(checkForValidation(positionNumber)) {
+            if (checkForValidation(positionNumber)) {
                 if (ticTacToeGame.getWinner() == 'X') {
                     winner = 'X';
                     break;
@@ -30,14 +30,19 @@ public class GameRunner {
                     winner = 'O';
                     break;
                 }
-                if(turn=='X')
-                    turn='O';
+                if (turn == 'X')
+                    turn = 'O';
                 else
-                    turn='X';
-                if(ticTacToeGame.checkMatchIsDraw()){
+                    turn = 'X';
+                if (ticTacToeGame.checkMatchIsDraw()) {
                     break;
                 }
             }
+        }
+        if (winner == 'X' || winner == 'O')
+            log.info(winner + " is the winner ...!!");
+        else {
+            log.info("Match is draw ....");
         }
     }
 
