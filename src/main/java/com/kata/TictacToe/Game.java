@@ -13,11 +13,12 @@ public class Game {
     public static final int ZERO_POSITION = 0;
     public static final int THIRD_POSITION = 3;
     public static final int SIXTH_POSITION = 6;
-    char previousPlayer;
-    static char[] board = new char[9];
 
-    public char getPlayer(int postionNumber) {
-        return board[postionNumber];
+    char previousPlayer;
+    char[] board = new char[9];
+
+    public char getPlayer(int slotNumber) {
+        return board[slotNumber];
     }
 
     public void playAtPosition(int positionNumber) {
@@ -31,7 +32,7 @@ public class Game {
     }
 
     public char getWinner() {
-        char winner = ZERO_POSITION;
+        char winner = 0;
         if (isAnyColumnFilledByPlayerX() || isAnyRowFilledByPlayerX() || isAnyDiagonalFilledByPlayerX()) {
             winner = PLAYER_X;
         }
@@ -82,7 +83,4 @@ public class Game {
     private boolean isPlayerOonGivenPosition(int position) {
         return getPlayer(position) == PLAYER_O;
     }
-
 }
-
-
