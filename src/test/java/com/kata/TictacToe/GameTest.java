@@ -98,4 +98,4 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_O, ticTacToeGame.getWinner());
     }
-}
+   }

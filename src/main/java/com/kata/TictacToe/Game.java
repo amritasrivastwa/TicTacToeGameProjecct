@@ -22,27 +22,36 @@ public class Game {
     }
 
     public char getWinner() {
-        if (getPlayer(0) == PLAYER_X && getPlayer(3) == PLAYER_X && getPlayer(6) == PLAYER_X) {
-            return PLAYER_X;
+        char winner = 0;
+        if (isAnyColumnFilledByPlayerX()) {
+            winner = PLAYER_X;
         }
-        else if (getPlayer(0) == PLAYER_O && getPlayer(3) == PLAYER_O && getPlayer(6) == PLAYER_O) {
-            return PLAYER_O;
+        if (isAnyColumnFilledByPlayerO()) {
+            winner = PLAYER_O;
         }
-        else if (getPlayer(1) == PLAYER_X && getPlayer(4) == PLAYER_X && getPlayer(7) == PLAYER_X) {
-            return PLAYER_X;
-        }
-        else if (getPlayer(1) == PLAYER_O && getPlayer(4) == PLAYER_O && getPlayer(7) == PLAYER_O) {
-            return PLAYER_O;
-        }
-        if (getPlayer(2) == PLAYER_X && getPlayer(5) == PLAYER_X && getPlayer(8) == PLAYER_X) {
-            return PLAYER_X;
-        }
-        else if (getPlayer(2) == PLAYER_O && getPlayer(5) == PLAYER_O && getPlayer(8) == PLAYER_O) {
-            return PLAYER_O;
-        }
-
-        return 0;
+        return winner;
     }
+
+    private boolean isAnyColumnFilledByPlayerX() {
+        return isPlayerXonGivenPosition(2) && isPlayerXonGivenPosition(5) && isPlayerXonGivenPosition(8)
+                || isPlayerXonGivenPosition(1) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(7)
+                || isPlayerXonGivenPosition(0) && isPlayerXonGivenPosition(3) && isPlayerXonGivenPosition(6);
+    }
+
+    private boolean isPlayerXonGivenPosition(int position) {
+        return getPlayer(position) == PLAYER_X;
+    }
+
+    private boolean isAnyColumnFilledByPlayerO() {
+        return isPlayerOonGivenPosition(2) && isPlayerOonGivenPosition(5) && isPlayerOonGivenPosition(8)
+                || isPlayerOonGivenPosition(1) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(7)
+                || isPlayerOonGivenPosition(0) && isPlayerOonGivenPosition(3) && isPlayerOonGivenPosition(6);
+    }
+
+    private boolean isPlayerOonGivenPosition(int position) {
+        return getPlayer(position) == PLAYER_O;
+    }
+
 }
 
 
