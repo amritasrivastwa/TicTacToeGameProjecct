@@ -23,7 +23,7 @@ public class Game {
 
     public char getWinner() {
         char winner = 0;
-        if (isAnyColumnFilledByPlayerX()) {
+        if (isAnyColumnFilledByPlayerX() || isAnyRowFilledByPlayerX() ){
             winner = PLAYER_X;
         }
         if (isAnyColumnFilledByPlayerO()) {
@@ -36,6 +36,11 @@ public class Game {
         return isPlayerXonGivenPosition(2) && isPlayerXonGivenPosition(5) && isPlayerXonGivenPosition(8)
                 || isPlayerXonGivenPosition(1) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(7)
                 || isPlayerXonGivenPosition(0) && isPlayerXonGivenPosition(3) && isPlayerXonGivenPosition(6);
+    }
+    private boolean isAnyRowFilledByPlayerX() {
+        return isPlayerXonGivenPosition(0) && isPlayerXonGivenPosition(1) && isPlayerXonGivenPosition(2)
+                || isPlayerXonGivenPosition(3) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(5)
+                || isPlayerXonGivenPosition(6) && isPlayerXonGivenPosition(7) && isPlayerXonGivenPosition(8);
     }
 
     private boolean isPlayerXonGivenPosition(int position) {
