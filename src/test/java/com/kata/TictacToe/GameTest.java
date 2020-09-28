@@ -17,11 +17,14 @@ public class GameTest {
 
     @Test
     public void shouldReturnXOnFirstTurn() {
+        ticTacToeGame.playAtPosition(1);
         Assert.assertEquals(PLAYER_X, ticTacToeGame.getPlayer(1));
     }
 
     @Test
     public void shouldReturnOonSecondTurn(){
+        ticTacToeGame.playAtPosition(1);
+        ticTacToeGame.playAtPosition(2);
         Assert.assertEquals(PLAYER_O,ticTacToeGame.getPlayer(2));
     }
 

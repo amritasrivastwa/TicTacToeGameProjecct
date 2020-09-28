@@ -4,10 +4,16 @@ public class Game {
 
     public static final char PLAYER_X = 'X';
     public static final char PLAYER_O = 'O';
-    public char getPlayer(int positionNumber) {
-        if (positionNumber == 1)
-            return PLAYER_X;
-        else
-            return PLAYER_O;
+    char previousPlayer;
+    static char[] board = new char[8];
+
+    public char getPlayer(int postionNumber) {
+        return board[postionNumber];
+    }
+
+    public void playAtPosition(int positionNumber) {
+        char currentPlayer = previousPlayer == PLAYER_X ? PLAYER_O : PLAYER_X;
+        board[positionNumber] = currentPlayer;
+        previousPlayer = currentPlayer;
     }
 }
