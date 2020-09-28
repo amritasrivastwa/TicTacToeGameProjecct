@@ -23,10 +23,10 @@ public class Game {
 
     public char getWinner() {
         char winner = 0;
-        if (isAnyColumnFilledByPlayerX() || isAnyRowFilledByPlayerX() || isAnyDiagonalFilledByPlayerX()){
+        if (isAnyColumnFilledByPlayerX() || isAnyRowFilledByPlayerX() || isAnyDiagonalFilledByPlayerX()) {
             winner = PLAYER_X;
         }
-        if (isAnyColumnFilledByPlayerO() || isAnyRowFilledByPlayerO()) {
+        if (isAnyColumnFilledByPlayerO() || isAnyRowFilledByPlayerO() || isAnyDiagonalFilledByPlayerO()) {
             winner = PLAYER_O;
         }
         return winner;
@@ -37,11 +37,13 @@ public class Game {
                 || isPlayerXonGivenPosition(1) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(7)
                 || isPlayerXonGivenPosition(0) && isPlayerXonGivenPosition(3) && isPlayerXonGivenPosition(6);
     }
+
     private boolean isAnyRowFilledByPlayerX() {
         return isPlayerXonGivenPosition(0) && isPlayerXonGivenPosition(1) && isPlayerXonGivenPosition(2)
                 || isPlayerXonGivenPosition(3) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(5)
                 || isPlayerXonGivenPosition(6) && isPlayerXonGivenPosition(7) && isPlayerXonGivenPosition(8);
     }
+
     private boolean isAnyDiagonalFilledByPlayerX() {
         return isPlayerXonGivenPosition(0) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(8)
                 || isPlayerXonGivenPosition(2) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(6);
@@ -56,10 +58,16 @@ public class Game {
                 || isPlayerOonGivenPosition(1) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(7)
                 || isPlayerOonGivenPosition(0) && isPlayerOonGivenPosition(3) && isPlayerOonGivenPosition(6);
     }
+
     private boolean isAnyRowFilledByPlayerO() {
         return isPlayerOonGivenPosition(0) && isPlayerOonGivenPosition(1) && isPlayerOonGivenPosition(2)
                 || isPlayerOonGivenPosition(3) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(5)
                 || isPlayerOonGivenPosition(6) && isPlayerOonGivenPosition(7) && isPlayerOonGivenPosition(8);
+    }
+
+    private boolean isAnyDiagonalFilledByPlayerO() {
+        return isPlayerOonGivenPosition(0) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(8)
+                || isPlayerOonGivenPosition(2) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(6);
     }
 
     private boolean isPlayerOonGivenPosition(int position) {

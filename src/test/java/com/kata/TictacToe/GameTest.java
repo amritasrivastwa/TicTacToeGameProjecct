@@ -190,5 +190,27 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_X, ticTacToeGame.getWinner());
     }
+    @Test
+    public void shouldDetermineWinnerOAfterFillingFirstDiagonal() {
+        ticTacToeGame.playAtPosition(1);
+        ticTacToeGame.playAtPosition(0);
+        ticTacToeGame.playAtPosition(3);
+        ticTacToeGame.playAtPosition(4);
+        ticTacToeGame.playAtPosition(2);
+        ticTacToeGame.playAtPosition(8);
+
+        Assert.assertEquals(PLAYER_O, ticTacToeGame.getWinner());
+    }
+    @Test
+    public void shouldDetermineWinnerOAfterFillingSecondDiagonal() {
+        ticTacToeGame.playAtPosition(1);
+        ticTacToeGame.playAtPosition(2);
+        ticTacToeGame.playAtPosition(3);
+        ticTacToeGame.playAtPosition(4);
+        ticTacToeGame.playAtPosition(0);
+        ticTacToeGame.playAtPosition(6);
+
+        Assert.assertEquals(PLAYER_O, ticTacToeGame.getWinner());
+    }
 
 }
