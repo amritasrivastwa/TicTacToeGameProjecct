@@ -17,8 +17,14 @@ public class Game {
     char previousPlayer;
     char[] board = new char[9];
 
-    public char getPlayer(int slotNumber) {
-        return board[slotNumber];
+    public char getPlayer(int positionNumber) {
+        return board[positionNumber];
+    }
+
+    public void initializeBoard() {
+        for (int i = 0; i < 9; i++) {
+            board[i] = (char) i;
+        }
     }
 
     public void playAtPosition(int positionNumber) {
@@ -82,5 +88,16 @@ public class Game {
 
     private boolean isPlayerOonGivenPosition(int position) {
         return getPlayer(position) == PLAYER_O;
+    }
+
+    public void printBoard() {
+        System.out.println("/---|---|---\\");
+        System.out.println("|  0 | 1 | 2 |");
+        System.out.println("|-----------|");
+        System.out.println("| 3 | 4 | 5 |");
+        System.out.println("|-----------|");
+        System.out.println("| 6 | 7 | 8 |");
+        System.out.println("/---|---|---\\");
+
     }
 }
