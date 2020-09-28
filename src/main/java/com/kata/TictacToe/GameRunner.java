@@ -41,7 +41,6 @@ public class GameRunner {
     }
 
     private static boolean checkForValidation(int positionNumber) {
-        return true;
+        return ticTacToeGame.userInputValidation(positionNumber) && ticTacToeGame.checkPositionIsFree(positionNumber);
     }
-
 }

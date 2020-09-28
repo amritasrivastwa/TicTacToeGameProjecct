@@ -26,13 +26,30 @@ public class Game {
             board[i] = (char) i;
         }
     }
-
-    public void playAtPosition(int positionNumber) {
-        char currentPlayer = getCurrentPlayer();
-        board[positionNumber] = currentPlayer;
-        previousPlayer = currentPlayer;
+    public boolean userInputValidation(int positionNumber) {
+        if (positionNumber < 0 || positionNumber > 8) {
+            System.out.println("Invalid input re-enter slot number....");
+            return false;
+        } else
+            return true;
+    }
+    public boolean checkPositionIsFree(int positionNumber) {
+        if (board[positionNumber] == positionNumber) {
+            playAtPosition(positionNumber);
+            return true;
+        } else {
+            System.out.println("Slot already taken; re-enter slot number: ");
+            return false;
+        }
     }
 
+    public void playAtPosition(int positionNumber) {
+        if (userInputValidation(positionNumber)) {
+            char currentPlayer = getCurrentPlayer();
+            board[positionNumber] = currentPlayer;
+            previousPlayer = currentPlayer;
+        }
+    }
     private char getCurrentPlayer() {
         return previousPlayer == PLAYER_X ? PLAYER_O : PLAYER_X;
     }
