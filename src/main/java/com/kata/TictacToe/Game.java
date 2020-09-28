@@ -19,4 +19,8 @@ public class Game {
     private char getCurrentPlayer() {
         return previousPlayer == PLAYER_X ? PLAYER_O : PLAYER_X;
     }
+    public char getWinner() {
+        return PLAYER_X;
+    }
+
 }
