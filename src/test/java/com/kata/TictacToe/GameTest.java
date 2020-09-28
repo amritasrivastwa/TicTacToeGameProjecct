@@ -4,11 +4,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class GameTest {
-    @Test
-    public void shouldReturnXOnFirstTurn(){
 
+    @Test
+    public void shouldReturnXOnFirstTurn() {
         Game ticTacToeGame = new Game();
-        Assert.assertEquals('X',ticTacToeGame.getPlayer());
+        Assert.assertEquals('X', ticTacToeGame.getPlayer(1));
     }
 
 }
