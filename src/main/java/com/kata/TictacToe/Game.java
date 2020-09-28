@@ -26,7 +26,7 @@ public class Game {
         if (isAnyColumnFilledByPlayerX() || isAnyRowFilledByPlayerX() ){
             winner = PLAYER_X;
         }
-        if (isAnyColumnFilledByPlayerO()) {
+        if (isAnyColumnFilledByPlayerO() || isAnyRowFilledByPlayerO()) {
             winner = PLAYER_O;
         }
         return winner;
@@ -51,6 +51,11 @@ public class Game {
         return isPlayerOonGivenPosition(2) && isPlayerOonGivenPosition(5) && isPlayerOonGivenPosition(8)
                 || isPlayerOonGivenPosition(1) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(7)
                 || isPlayerOonGivenPosition(0) && isPlayerOonGivenPosition(3) && isPlayerOonGivenPosition(6);
+    }
+    private boolean isAnyRowFilledByPlayerO() {
+        return isPlayerOonGivenPosition(0) && isPlayerOonGivenPosition(1) && isPlayerOonGivenPosition(2)
+                || isPlayerOonGivenPosition(3) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(5)
+                || isPlayerOonGivenPosition(6) && isPlayerOonGivenPosition(7) && isPlayerOonGivenPosition(8);
     }
 
     private boolean isPlayerOonGivenPosition(int position) {
