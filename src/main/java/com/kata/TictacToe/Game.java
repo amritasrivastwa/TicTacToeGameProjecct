@@ -100,4 +100,8 @@ public class Game {
         System.out.println("/---|---|---\\");
 
     }
+
+    public boolean checkMatchIsDraw() {
+        return true;
+    }
 }

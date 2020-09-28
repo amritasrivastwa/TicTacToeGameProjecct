@@ -17,7 +17,31 @@ public class GameRunner {
         ticTacToeGame.initializeBoard();
         ticTacToeGame.printBoard();
         char winner = 0;
+        while (true) {
+            log.info(turn+"  turn: enter position number (0 to 8) :");
+            positionNumber = in.nextInt();
+            if(checkForValidation(positionNumber)) {
+                if (ticTacToeGame.getWinner() == 'X') {
+                    winner = 'X';
+                    break;
+                }
+                if (ticTacToeGame.getWinner() == 'O') {
+                    winner = 'O';
+                    break;
+                }
+                if(turn=='X')
+                    turn='O';
+                else
+                    turn='X';
+                if(ticTacToeGame.checkMatchIsDraw()){
+                    break;
+                }
+            }
+        }
+    }
 
+    private static boolean checkForValidation(int positionNumber) {
+        return true;
     }
 
 }
